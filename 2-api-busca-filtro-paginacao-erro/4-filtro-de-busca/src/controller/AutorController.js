@@ -23,8 +23,8 @@ export default class AutorController {
     }
   };
   static cadastroAutor = async (req, res, next) => {
+    let autor = new Autor(req.body);
     try {
-      let autor = new Autor(req.body);
       const autorResponse = await autor.save();
       return res.status(201).send(autorResponse.toJSON());
     } catch (error) {

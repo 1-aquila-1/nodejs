@@ -3,7 +3,7 @@ import Livro from "../model/Livro.js";
 export default class LivroController{
   static listarLivros = async (req, res) =>{
     try {
-      let livroResponse = await Livro.find().populate("autor").exec(); 
+      let livroResponse = await Livro.find().populate("autor"); 
       res.status(200).json(livroResponse);
     } catch (error) {
       res.status(400).send({mensagem: `${error.message} - Falha ao pesquisar livro`});
@@ -12,7 +12,7 @@ export default class LivroController{
   static listarLivroId = async (req, res) =>{
     const { id } = req.params;
     try {
-      let livroResponse = await Livro.findById(id).populate("autor", "nome").exec();   
+      let livroResponse = await Livro.findById(id).populate("autor", "nome");   
       res.status(200).json(livroResponse);
     } catch (error) {
       res.status(400).send({mensagem: `${error.message} - Falha ao pesquisar livro`});
