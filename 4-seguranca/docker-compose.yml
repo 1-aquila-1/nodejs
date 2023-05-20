@@ -1,0 +1,17 @@
+
+version: '3.3'
+services:
+  db:
+    image: mysql:5.7
+    container_name: curso04
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'curso04'   
+      MYSQL_ROOT_PASSWORD: '20aquila01'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - './infra/mysql:/var/lib/mysql'
+      - "./db.sql:/docker-entrypoint-initdb.d/1.sql"
