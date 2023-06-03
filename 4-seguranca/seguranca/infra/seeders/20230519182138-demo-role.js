@@ -5,7 +5,7 @@ const uuid = require("uuid");
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('roles', [{
-      id: uuid.v4(),
+      id: "r-gerente",
       nome: 'GERENTE',
       descricao: "Função de gerente",
       createdAt: new Date(),
